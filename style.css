@@ -1,0 +1,117 @@
+/* Forzamos a que no haya scroll y que los contenedores respeten la altura */
+html, body {
+    height: 100% !important;
+    /*overflow: hidden;*/
+}
+
+/*body {
+    overflow: hidden;
+}*/
+
+.logo-cifp {
+    width: 200px;
+    height: auto;
+}
+
+ /* Color Gris Plomo personalizado */
+.bg-gris-plomo {
+    background-color: #24262b !important;
+}    
+
+
+/*CONTENIDO PRINCIPAL*/
+
+.texto-parrafo-custom {
+    /*color: #170d0d !important; */
+    max-width: 520px;
+} 
+
+/*FOOTER*/
+
+.borde-superior{
+    border-top: 1px solid rgba(255, 255, 255, 0.15) !important;
+
+}
+
+.bg-smr::before, .bg-asir::before, .bg-daw::before, .bg-dam::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(36, 38, 43, 0.85); /* <-- ESTO ES LO QUE HACE EL TRASLÚCIDO */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 1;
+}
+
+/*Otros dispositivos / medias query*/
+
+/* 1. DISPOSITIVOS MEDIANOS Y PEQUEÑOS (Pantallas de 1087px o menos) */
+@media (max-width: 1087px) {
+    /* Forzamos a que el main empiece a dibujarse más abajo de la barra blanca */
+    main.tab-content {
+        padding-top: 90px !important; 
+    }
+    
+    /* Reducimos el tamaño del título de forma segura SOLO en pantallas pequeñas */
+    h1.display-3, .display-3 {
+        font-size: 1.8rem !important; /* Tamaño controlado para tablets/móviles */
+        margin-top: 10px !important;
+    }
+
+    p {
+        display: none !important;
+    }
+}
+
+/* 2. SÓLO MÓVILES (Pantallas de 991px o menos) */
+@media (max-width: 991px) {
+    main {
+        overflow-y: auto; /* El contenido central absorbe el movimiento sin mover el navbar ni el footer */
+        max-height: calc(100vh - 160px); /* Ajusta el espacio restando el alto estimado de cabecera y pie */
+    }
+    
+    /* Reducimos un poco más el tamaño en teléfonos */
+    h1.display-3, .display-3, .display-4 {
+        font-size: 1.5rem !important;
+    }
+}
+
+/* Base estructural común para los fondos de los estudios (Se mantiene en todos los dispositivos) */
+.bg-smr, .bg-asir, .bg-daw, .bg-dam {
+    position: relative;
+}
+
+/* 3. PARA ORDENADORES (Desde 992px hacia arriba) */
+@media (min-width: 992px) {
+    /* Cargamos las imágenes de fondo SOLO en pantallas grandes */
+    .bg-smr { background-image: url('img/smr.jpg'); }
+    .bg-asir { background-image: url('img/asir.jpg'); }
+    .bg-daw { background-image: url('img/daw2.jpg'); }
+    .bg-dam { background-image: url('img/dam.jpg'); }
+
+    /* Activamos el difuminado premium y el tamaño cover solo en PC */
+    .bg-smr, .bg-asir, .bg-daw, .bg-dam {
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .bg-smr::before, .bg-asir::before, .bg-daw::before, .bg-dam::before {
+        content: "";
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: rgba(36, 38, 43, 0.45); /* Tono gris plomo translúcido *//* Capa oscura más suave para dar contraste al texto */
+        backdrop-filter: blur(3px);/* Desenfoque 3px */
+        -webkit-backdrop-filter: blur(3px); /* Desenfoque para Safari */
+        z-index: 1;
+    }
+
+    /* Forzamos a que el texto flote sobre el difuminado en PC */
+    .bg-smr .container-fluid, 
+    .bg-asir .container-fluid, 
+    .bg-daw .container-fluid, 
+    .bg-dam .container-fluid {
+        position: relative;
+        z-index: 2;
+    }
+} 

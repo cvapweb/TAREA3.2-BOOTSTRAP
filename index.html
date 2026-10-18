@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="es" class="h-100">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CIFP César Manrique - Departamento de Informática</title>
+  <!-- Bootstrap 5 CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <!-- Enlace al CSS externo -->
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body class="d-flex flex-column bg-gris-plomo text-white h-100">
+
+  <!-- ========================================== -->
+  <!-- NAVEGACIÓN PRINCIPAL (Navbar)       -->
+  <!-- ========================================== -->
+  <header class="w-100 position-relative" style="z-index: 1050;">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 shadow-sm w-100">
+      <div class="container-fluid px-4 px-md-5" style="max-width: 1600px;">
+        
+        <a class="navbar-brand d-flex align-items-center" href="#inicio" onclick="document.getElementById('tab-inicio').click(); return false;">
+          <img src="img/logo-cifp.png" class="logo-cifp img-fluid" alt="Logo CIFP César Manrique" style="max-height: 45px; width: auto;">
+        </a>
+
+        <button class="navbar-toggler border rounded-3 p-2 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Abrir menú">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="menu">
+          <ul class="navbar-nav ms-auto text-end mt-3 mt-lg-0" id="menuTab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active py-2 px-lg-3 fw-bold text-dark border-0 bg-transparent" id="tab-inicio" data-bs-toggle="tab" data-bs-target="#inicio" type="button" role="tab" aria-controls="inicio" aria-selected="true">Inicio</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link py-2 px-lg-3 fw-semibold text-secondary border-0 bg-transparent" id="tab-smr" data-bs-toggle="tab" data-bs-target="#smr" type="button" role="tab" aria-controls="smr" aria-selected="false">SMR</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link py-2 px-lg-3 fw-semibold text-secondary border-0 bg-transparent" id="tab-asir" data-bs-toggle="tab" data-bs-target="#asir" type="button" role="tab" aria-controls="asir" aria-selected="false">ASIR</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link py-2 px-lg-3 fw-semibold text-secondary border-0 bg-transparent" id="tab-daw" data-bs-toggle="tab" data-bs-target="#daw" type="button" role="tab" aria-controls="daw" aria-selected="false">DAW</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link py-2 px-lg-3 fw-semibold text-secondary border-0 bg-transparent" id="tab-dam" data-bs-toggle="tab" data-bs-target="#dam" type="button" role="tab" aria-controls="dam" aria-selected="false">DAM</button>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </nav>
+  </header>
+
+  <!-- ========================================== -->
+  <!-- CONTENEDOR PRINCIPAL       -->
+  <!-- ========================================== -->
+  <main class="flex-grow-1 tab-content w-100" id="contenidoPrincipal">
+    
+    <!-- PESTAÑA: HOME (Limpia con Gris Plomo) -->
+    <div class="tab-pane fade show active h-100" id="inicio" role="tabpanel" aria-labelledby="tab-inicio" tabindex="0">
+      <div class="container-fluid px-4 px-md-5 h-100 d-flex align-items-center" style="max-width: 1600px;">
+        <div class="row align-items-center gy-5 g-lg-5 w-100">
+          <div class="col-lg-6 col-xl-5 text-center text-lg-start d-flex flex-column justify-content-center align-items-center align-items-lg-start">
+              <!--<span class="badge bg-primary mb-3 px-3 py-2 text-uppercase tracking-wider">Formación Tecnológica</span>-->
+            <h1 class="display-3 fw-bold mb-3 text-white">Impulsa tu Futuro con una formación que te abré puertas al mundo laboral</h1>
+            <p class="lead text-white-50 mb-4 mx-auto mx-lg-0" style="max-width: 520px;">
+              Descubre la oferta educativa del CIFP César Manrique en la familia de Informática y Comunicaciones. Desarrollamos el talento técnico que liderará los entornos de desarrollo, sistemas y redes del mañana.
+            </p>
+            <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-lg-start w-100 mt-2">
+              <button class="btn btn-primary btn-lg px-4 py-3 fw-semibold shadow-sm" data-bs-toggle="modal" data-bs-target="#modalContacto"><i class="bi bi-envelope-fill me-2"></i>Realizar Consulta</button>
+              <button class="btn btn-outline-light btn-lg px-4 py-3 fw-semibold" data-bs-toggle="modal" data-bs-target="#modalVideo"><i class="bi bi-play-circle-fill me-2"></i>Ver Vídeo</button>
+            </div>
+          </div>
+          <div class="col-lg-6 col-xl-7 d-flex align-items-center justify-content-center">
+            <img src="img//jovenes-programadores.png" class="img-fluid w-100 rounded-4 shadow-lg" alt="Jóvenes programadores" style="height: auto; max-height: 75vh; object-fit: contain;">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PESTAÑA: SMR -->
+    <div class="tab-pane fade h-100 bg-smr" id="smr" role="tabpanel" aria-labelledby="tab-smr" tabindex="0">
+      <div class="container-fluid px-4 px-md-5 h-100 d-flex align-items-center" style="max-width: 1600px;">
+        <div class="row align-items-center gy-4 g-lg-5 w-100">
+          <div class="col-lg-5 text-center text-lg-start d-flex flex-column justify-content-center align-items-center align-items-lg-start">
+            <span class="badge bg-primary mb-3 px-3 py-2 text-uppercase tracking-wider">Ciclo Formativo de Grado Medio</span>
+            <h1 class="display-4 fw-bold mb-3 text-white">Sistemas Microinformáticos y Redes (SMR)</h1>
+            <div class="lead text-white-50 mb-4 mx-auto mx-lg-0" style="max-width: 520px;">
+              <p class="mb-3">¿Te apasiona el soporte técnico y el hardware? Estudiar SMR es el punto de partida ideal para entrar al mercado laboral informático mediante metodologías totalmente prácticas y dinámicas.</p>
+            </div>
+            <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-lg-start w-100">
+              <button class="btn btn-primary btn-lg px-4 py-2 fw-semibold" data-bs-toggle="modal" data-bs-target="#modalContacto"><i class="bi bi-envelope-fill me-2"></i>Consulta SMR</button>
+              <button class="btn btn-outline-light btn-lg px-4 py-2 fw-semibold" onclick="document.getElementById('tab-inicio').click();"><i class="bi bi-arrow-left me-2"></i>Volver</button>
+            </div>
+          </div>
+          <div class="col-lg-7"><div class="row g-4">
+            <div class="col-md-6"><div class="p-4 rounded-4 shadow-lg" style="background-color: rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.08);">
+              <div class="d-flex align-items-center mb-3"><span class="badge bg-primary p-2 me-2 rounded-3"><i class="bi bi-1-square-fill fs-5"></i></span><h5 class="mb-0 fw-bold text-white">
+                1º Curso</h5></div>
+              <ul class="list-group list-group-flush rounded-3 overflow-hidden">
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-cpu text-primary me-2"></i> 
+                  Montaje y Mantenimiento de Equipos</li>
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-window text-primary me-2"></i> 
+                  Sistemas Operativos Monopuesto</li>
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-file-earmark-spreadsheet text-primary me-2"></i> 
+                  Aplicaciones Ofimáticas</li>
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-window text-primary me-2"></i> 
+                  Redes Locales</li>
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-diagram-3 text-primary me-2"></i> 
+                  Inglés profesional</li>
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-briefcase text-primary me-2"></i> 
+                  Digitación aplicada a los setores productivos</li>
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-file-earmark-spreadsheet text-primary me-2"></i> 
+                  Empleabilidad I</li>  
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-briefcase text-primary me-2"></i> 
+                  Formación en empresas</li> 
+              </ul>
+            </div></div>
+
+            <div class="col-md-6"><div class="p-4 rounded-4 shadow-lg" style="background-color: rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.08);">
+              <div class="d-flex align-items-center mb-3"><span class="badge bg-info p-2 me-2 rounded-3 text-dark"><i class="bi bi-2-square-fill fs-5"></i></span><h5 class="mb-0 fw-bold text-white">
+                2º Curso</h5></div>
+              <ul class="list-group list-group-flush rounded-3 overflow-hidden">
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-hdd-network text-info me-2"></i> 
+                  Sistemas Operativos en Red</li>
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-shield-lock text-info me-2"></i> 
+                  Seguridad Informática</li>
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-globe text-info me-2"></i> 
+                  Servicios en Red</li>
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-code-slash text-info me-2"></i> 
+                  Aplicaciones Web</li>
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-hdd-network text-info me-2"></i> 
+                  Sostenibilidad aplicada al sistema productivo</li>
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-buildings text-info me-2"></i> 
+                  Empleabilidad II</li>
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-buildings text-info me-2"></i> 
+                  Proyecto intermodular</li>
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-buildings text-info me-2"></i> 
+                  Optativo</li>    
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-buildings text-info me-2"></i> 
+                  Formación en empresas</li>  
+              </ul>
+            </div></div>
+
+          </div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PESTAÑA: ASIR -->
+    <div class="tab-pane fade h-100 bg-asir" id="asir" role="tabpanel" aria-labelledby="tab-asir" tabindex="0">
+      <div class="container-fluid px-4 px-md-5 h-100 d-flex align-items-center" style="max-width: 1600px;">
+        <div class="row align-items-center gy-4 g-lg-5 w-100">
+          <div class="col-lg-5 text-center text-lg-start d-flex flex-column justify-content-center align-items-center align-items-lg-start">
+            <span class="badge bg-primary mb-3 px-3 py-2 text-uppercase tracking-wider">Ciclo Formativo de Grado Superior</span>
+            <h1 class="display-4 fw-bold mb-3 text-white">Administración de Sistemas Informáticos en Red (ASIR)</h1>
+            <div class="lead text-white-50 mb-4 mx-auto mx-lg-0" style="max-width: 520px;">
+              <p class="mb-3">Conviértete en el guardián de los datos e infraestructuras empresariales. Domina servidores en la nube, ciberseguridad avanzada y optimización de redes críticas.</p>
+            </div>
+            <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-lg-start w-100">
+              <button class="btn btn-primary btn-lg px-4 py-2 fw-semibold" data-bs-toggle="modal" data-bs-target="#modalContacto"><i class="bi bi-envelope-fill me-2"></i>Consulta ASIR</button>
+              <button class="btn btn-outline-light btn-lg px-4 py-2 fw-semibold" onclick="document.getElementById('tab-inicio').click();"><i class="bi bi-arrow-left me-2"></i>Volver</button>
+            </div>
+          </div>
+          <div class="col-lg-7"><div class="row g-4">
+            <div class="col-md-6"><div class="p-4 rounded-4 shadow-lg" style="background-color: rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.08);">
+              <div class="d-flex align-items-center mb-3"><span class="badge bg-primary p-2 me-2 rounded-3"><i class="bi bi-1-square-fill fs-5"></i></span><h5 class="mb-0 fw-bold text-white">1º Curso</h5></div>
+              <ul class="list-group list-group-flush rounded-3 overflow-hidden">
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-hdd text-primary me-2"></i> 
+                  Implantación de Sistemas Operativos</li>
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-diagram-2 text-primary me-2"></i> 
+                  Planificación y Admin. de Redes</li>
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-cpu-fill text-primary me-2"></i> 
+                  Fundamentos de Hardware</li>
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-database text-primary me-2"></i> 
+                  Gestión de Bases de Datos</li>
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-code text-primary me-2"></i> 
+                  Lenguajes de Marcas y sistemas de gestión</li>
+                 <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-diagram-2 text-primary me-2"></i> 
+                  Inglés profesional</li>
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-cpu-fill text-primary me-2"></i> 
+                  Digitación aplicada</li>
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-database text-primary me-2"></i> 
+                  Itinerario personal para empleabilidad I</li>
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-code text-primary me-2"></i> 
+                  Formación en empresas</li>  
+              </ul>
+            </div></div>
+
+            <div class="col-md-6"><div class="p-4 rounded-4 shadow-lg" style="background-color: rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.08);">
+              <div class="d-flex align-items-center mb-3"><span class="badge bg-info p-2 me-2 rounded-3 text-dark"><i class="bi bi-2-square-fill fs-5"></i></span><h5 class="mb-0 fw-bold text-white">
+                2º Curso</h5></div>
+              <ul class="list-group list-group-flush rounded-3 overflow-hidden">
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-server text-info me-2"></i> 
+                  Administración de S.O.</li>
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-cloud-check text-info me-2"></i> 
+                  Servicios de Red e Internet</li>
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-browser-chrome text-info me-2"></i> 
+                  Implantación de Aplicaciones Web</li>
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-rocket-takeoff text-info me-2"></i> 
+                  Administración de sistemas gestores de BD</li>
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-server text-info me-2"></i> 
+                  Seguridad y alta disponibilidad</li>
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-cloud-check text-info me-2"></i> 
+                  Sostenibilidad</li>
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-browser-chrome text-info me-2"></i> 
+                  Empleabilidad II</li>
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-rocket-takeoff text-info me-2"></i> 
+                  Proyecto</li>  
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-browser-chrome text-info me-2"></i> 
+                  Optativo</li>
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-rocket-takeoff text-info me-2"></i> 
+                  Formación en empresas</li>  
+              </ul>
+            </div></div>
+
+          </div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PESTAÑA: DAW -->
+    <div class="tab-pane fade h-100 bg-daw" id="daw" role="tabpanel" aria-labelledby="tab-daw" tabindex="0">
+      <div class="container-fluid px-4 px-md-5 h-100 d-flex align-items-center" style="max-width: 1600px;">
+        <div class="row align-items-center gy-4 g-lg-5 w-100">
+          <div class="col-lg-5 text-center text-lg-start d-flex flex-column justify-content-center align-items-center align-items-lg-start">
+            <span class="badge bg-primary mb-3 px-3 py-2 text-uppercase tracking-wider">Ciclo Formativo de Grado Superior</span>
+            <h1 class="display-4 fw-bold mb-3 text-white">Desarrollo de Aplicaciones Web (DAW)</h1>
+            <div class="lead text-white-50 mb-4 mx-auto mx-lg-0" style="max-width: 520px;">
+              <p class="mb-3">El desarrollo Front-End y Back-End moderno a tu alcance. Crea portales interactivos complejos, consume APIs y despliega aplicaciones web adaptadas al ecosistema nube.</p>
+            </div>
+            <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-lg-start w-100">
+              <button class="btn btn-primary btn-lg px-4 py-2 fw-semibold" data-bs-toggle="modal" data-bs-target="#modalContacto"><i class="bi bi-envelope-fill me-2"></i>Consulta DAW</button>
+              <button class="btn btn-outline-light btn-lg px-4 py-2 fw-semibold" onclick="document.getElementById('tab-inicio').click();"><i class="bi bi-arrow-left me-2"></i>Volver</button>
+            </div>
+          </div>
+          <div class="col-lg-7"><div class="row g-4">
+            <div class="col-md-6"><div class="p-4 rounded-4 shadow-lg" style="background-color: rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.08);">
+              <div class="d-flex align-items-center mb-3"><span class="badge bg-primary p-2 me-2 rounded-3"><i class="bi bi-1-square-fill fs-5"></i></span><h5 class="mb-0 fw-bold text-white">
+                1º Curso</h5></div>
+              <ul class="list-group list-group-flush rounded-3 overflow-hidden">
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-terminal text-primary me-2"></i> 
+                  Lenguaje de marcas y sistemas de gestión</li>
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-database-fill text-primary me-2"></i> 
+                  Sistemas informáticos</li>
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-layers text-primary me-2"></i> 
+                  Bases de datos</li>
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-pc-display text-primary me-2"></i> 
+                  Programación</li>
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-filetype-html text-primary me-2"></i> 
+                  Entornos de desarrollo</li>
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-terminal text-primary me-2"></i> 
+                  Inglés profesional</li>
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-database-fill text-primary me-2"></i> 
+                  Digitalización aplicada</li>
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-layers text-primary me-2"></i> 
+                  Empleabilidad I</li>
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-pc-display text-primary me-2"></i> 
+                  Formación en empresas</li>
+              </ul>
+            </div></div>
+
+            <div class="col-md-6"><div class="p-4 rounded-4 shadow-lg" style="background-color: rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.08);">
+              <div class="d-flex align-items-center mb-3"><span class="badge bg-info p-2 me-2 rounded-3 text-dark"><i class="bi bi-2-square-fill fs-5"></i></span><h5 class="mb-0 fw-bold text-white">
+                2º Curso</h5></div>
+              <ul class="list-group list-group-flush rounded-3 overflow-hidden">
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-code-square text-info me-2"></i> 
+                  Desarrollo web en Entorno Cliente</li>
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-file-code text-info me-2"></i> 
+                  Desarrollo web en Entorno Servidor</li>
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-palette text-info me-2"></i> 
+                  Diseño de Interfaces Web</li>
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-code-square text-info me-2"></i> 
+                  Despliegue de Aplicaciones Web</li>
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-award text-info me-2"></i> 
+                  Sostenibilidad</li>  
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-award text-info me-2"></i> 
+                  Empleabilidad II</li>
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-award text-info me-2"></i> 
+                  Proyecto</li>   
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-award text-info me-2"></i> 
+                  Optativo
+                </li>
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-award text-info me-2"></i> 
+                  Formación en empresas</li>     
+              </ul>
+            </div></div>
+
+          </div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PESTAÑA: DAM -->
+    <div class="tab-pane fade h-100 bg-dam" id="dam" role="tabpanel" aria-labelledby="tab-dam" tabindex="0">
+      <div class="container-fluid px-4 px-md-5 h-100 d-flex align-items-center" style="max-width: 1600px;">
+        <div class="row align-items-center gy-4 g-lg-5 w-100">
+          <div class="col-lg-5 text-center text-lg-start d-flex flex-column justify-content-center align-items-center align-items-lg-start">
+            <span class="badge bg-primary mb-3 px-3 py-2 text-uppercase tracking-wider">Ciclo Formativo de Grado Superior</span>
+            <h1 class="display-4 fw-bold mb-3 text-white">Desarrollo de Aplicaciones Multiplataforma (DAM)</h1>
+            <div class="lead text-white-50 mb-4 mx-auto mx-lg-0" style="max-width: 520px;">
+              <p class="mb-3">Construye software nativo sin límites para Android, iOS, Windows y Linux. Especialízate en interfaces avanzadas, desarrollo multimedia y sistemas distribuidos ERP.</p>
+            </div>
+            <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-lg-start w-100">
+              <button class="btn btn-primary btn-lg px-4 py-2 fw-semibold" data-bs-toggle="modal" data-bs-target="#modalContacto"><i class="bi bi-envelope-fill me-2"></i>Consulta DAM</button>
+              <button class="btn btn-outline-light btn-lg px-4 py-2 fw-semibold" onclick="document.getElementById('tab-inicio').click();"><i class="bi bi-arrow-left me-2"></i>Volver</button>
+            </div>
+          </div>
+          <div class="col-lg-7"><div class="row g-4">
+            <div class="col-md-6"><div class="p-4 rounded-4 shadow-lg" style="background-color: rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.08);">
+              <div class="d-flex align-items-center mb-3"><span class="badge bg-primary p-2 me-2 rounded-3"><i class="bi bi-1-square-fill fs-5"></i></span><h5 class="mb-0 fw-bold text-white">
+                1º Curso</h5></div>
+              <ul class="list-group list-group-flush rounded-3 overflow-hidden">
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-braces text-primary me-2"></i> 
+                  Lenguajes de marca, sistemas de gestión </li>
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-database text-primary me-2"></i>
+                   Sistemas informáticos</li>
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-gear-wide-connected text-primary me-2"></i> 
+                  Bases de datos</li>
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-pc text-primary me-2"></i> 
+                  Programación</li>
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-code text-primary me-2"></i> 
+                  Entornos de desarrollo</li>
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-gear-wide-connected text-primary me-2"></i> 
+                  Inglés profesional</li>
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-pc text-primary me-2"></i> 
+                  Digitalización</li>
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-code text-primary me-2"></i> 
+                  Empleabilidad I</li> 
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-code text-primary me-2"></i> 
+                  Formación en empresas</li>                
+              </ul>
+            </div></div>
+            <div class="col-md-6"><div class="p-4 rounded-4 shadow-lg" style="background-color: rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.08);">
+              <div class="d-flex align-items-center mb-3"><span class="badge bg-info p-2 me-2 rounded-3 text-dark"><i class="bi bi-2-square-fill fs-5"></i></span><h5 class="mb-0 fw-bold text-white">
+                2º Curso</h5></div>
+              <ul class="list-group list-group-flush rounded-3 overflow-hidden">
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-phone text-info me-2"></i> 
+                  Acceso a datos</li>
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-controller text-info me-2"></i> 
+                  Desarrollo de interfaces</li>
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-menu-button-wide text-info me-2"></i> 
+                 Programación multimedia y dispositivos móviles</li>
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-puzzle text-info me-2"></i> 
+                  Programación de servicios y procesos</li>
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-clipboard-check text-info me-2"></i> 
+                  Sistema de gestión empresarial</li>
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-phone text-info me-2"></i> 
+                  Sostenibilidad</li>
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-controller text-info me-2"></i> 
+                  Empleabilidad II</li>
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-menu-button-wide text-info me-2"></i> 
+                  Proyecto</li>
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-puzzle text-info me-2"></i> 
+                  Optativo</li>
+                <li class="list-group-item list-group-item-custom d-flex align-items-center"><i class="bi bi-clipboard-check text-info me-2"></i> 
+                  Formación en empresas</li>
+              </ul>
+            </div></div>
+          </div></div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Modales Globales -->
+   <!-- Formulario -->
+  <div class="modal fade" id="modalContacto" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content text-white" style="background-color: #25282e; border: 1px solid rgba(255,255,255,0.15);">
+        <div class="modal-header border-bottom border-secondary">
+          <h5 class="modal-title fw-bold">Solicitud de Información Oficial</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <form id="formConsulta" action="#" method="POST">
+            <div class="form-floating mb-3 text-dark"><input type="text" class="form-control bg-light" id="nombreInput" placeholder="Nombre" required><label for="nombreInput">Nombre Completo</label></div>
+            <div class="form-floating mb-3 text-dark"><input type="email" class="form-control bg-light" id="emailInput" placeholder="Email" required><label for="emailInput">Correo Electrónico</label></div>
+            <div class="form-floating mb-4 text-dark"><textarea class="form-control bg-light" id="consultaInput" placeholder="Consulta" style="height: 120px" required></textarea><label for="consultaInput">¿Qué dudas tienes sobre nuestros ciclos?</label></div>
+            <div class="d-grid"><button type="submit" class="btn btn-primary btn-lg fw-semibold">Enviar Formulario</button></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+     <!-- Vídeo -->
+<div class="modal fade" id="modalVideo" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+      <div class="modal-content bg-transparent border-0">
+        <div class="text-end mb-2">
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body p-0">
+          <div class="ratio ratio-16x9 rounded-4 overflow-hidden">
+            
+              <iframe width="1337" height="752" 
+                src="https://www.youtube.com/embed/5icnPprABvA" 
+                title="Formación semipresencial César Manrique" 
+                frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" 
+                allowfullscreen>
+            </iframe>
+
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+  <!-- Footer con Borde CSS integrado -->
+  <footer class="mt-auto py-3 text-center text-white-50 w-100 div-borde-custom">
+    <div class="container w-100 pt-3">
+      <div class="d-flex flex-column flex-xl-row justify-content-center align-items-center gap-2 gap-xl-3 small">
+        <span class="text-white fw-bold text-uppercase tracking-wider">Centro Integrado de Formación Profesional César Manrique</span>
+        <span class="d-none d-xl-inline text-secondary-50 opacity-25">|</span>
+        <span>Avenida Príncipes de España, 5</span>
+        <span class="d-none d-xl-inline text-secondary-50 opacity-25">|</span>
+        <span>Santa Cruz de Tenerife</span>
+        <span class="d-none d-xl-inline text-secondary-50 opacity-25">|</span>
+        <span><i class="bi bi-telephone-fill me-1 text-primary"></i> 922 47 72 00</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const tabElList = document.querySelectorAll('button[data-bs-toggle="tab"]');
+    tabElList.forEach(tabEl => {
+      tabEl.addEventListener('shown.bs.tab', event => {
+        event.relatedTarget.classList.remove('active', 'text-dark', 'fw-bold');
+        event.relatedTarget.classList.add('text-secondary', 'fw-semibold');
+        event.target.classList.remove('text-secondary', 'fw-semibold');
+        event.target.classList.add('active', 'text-dark', 'fw-bold');
+      });
+    });
+
+    
+  const modal = document.getElementById('modalVideo');
+  const frame = document.getElementById('ytFrame');
+  const url = 'https://www.youtube.com/embed/k899C0f5iXo?autoplay=1&rel=0';
+
+  modal.addEventListener('shown.bs.modal', () => frame.src = url);
+  modal.addEventListener('hidden.bs.modal', () => frame.src = '');
+
+  </script>
+</body>
+</html>
