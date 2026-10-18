@@ -430,30 +430,41 @@
   
   <script>
 
-    const tabElList = document.querySelectorAll('button[data-bs-toggle="tab"]');
-    tabElList.forEach(tabEl => {
-      tabEl.addEventListener('shown.bs.tab', event => {
-        event.relatedTarget.classList.remove('active', 'text-dark', 'fw-bold');
-        event.relatedTarget.classList.add('text-secondary', 'fw-semibold');
-        event.target.classList.remove('text-secondary', 'fw-semibold');
-        event.target.classList.add('active', 'text-dark', 'fw-bold');
-      });
+    // Esperar a que toda la página esté cargada por completo
+document.addEventListener("DOMContentLoaded", () => {
+    
+    // 1. Buscar cualquier modal que contenga un iframe de YouTube
+    const todosLosModales = document.querySelectorAll('.modal');
+
+    todosLosModales.forEach(modal => {
+        // Escuchamos el evento de cierre estándar de Bootstrap
+        modal.addEventListener('hidden.bs.modal', () => {
+            const iframe = modal.querySelector('iframe');
+            if (iframe) {
+                // Forzamos la detención vaciando el src de forma agresiva
+                iframe.src = ''; 
+            }
+        });
     });
 
+    // 2.  botón "X" rompe los eventos de Bootstrap,
+    // escuchar directamente el clic en culaquier botón de cierre físico
+    const botonesCierre = document.querySelectorAll('[data-bs-dismiss="modal"], [data-dismiss="modal"], .btn-close');
     
-  const modal = document.getElementById('modalVideo');
-  const frame = document.getElementById('ytFrame');
-  const url = 'https://www.youtube.com/embed/k899C0f5iXo?autoplay=1&rel=0';
-
-   if (modal && frame) {
-    modal.addEventListener('shown.bs.modal', () => {
-        frame.src = url;
+    botonesCierre.forEach(boton => {
+        boton.addEventListener('click', () => {
+            // Buscar el modal más cercano al botón pulsado (la X)
+            const modalPadre = boton.closest('.modal');
+            if (modalPadre) {
+                const iframe = modalPadre.querySelector('iframe');
+                if (iframe) {
+                    // Detener el audio de inmediato al hacer clic físico en la X
+                    iframe.src = ''; 
+                }
+            }
+        });
     });
-    
-    modal.addEventListener('hidden.bs.modal', () => {
-        frame.src = '';
-    });
-}
+});
 
   </script>
 
