@@ -438,40 +438,40 @@ document.addEventListener("DOMContentLoaded", () => {
         const iframe = modal.querySelector('iframe');
         
         if (iframe) {
-            // Guardamos la URL base limpia eliminando espacios o barras finales extrañas
-            let urlOriginal = iframe.src.trim();
+            // Extraemos la URL limpia del iframe del HTML
+            let urlBase = iframe.src.trim();
 
-            // Modificamos la URL original para forzar el AUTOPLAY cumpliendo las reglas de Google
-            // Añadimos autoplay=1 y mute=1 (es obligatorio mutearlo para que el navegador permita el autoplay)
-            if (!urlOriginal.includes('autoplay=1')) {
-                const conector = urlOriginal.includes('?') ? '&' : '?';
-                urlOriginal = `${urlOriginal}${conector}autoplay=1&mute=1&enablejsapi=1`;
+            // Si la URL ya tiene parámetros anteriores, los limpiamos para evitar conflictos
+            if (urlBase.includes('?')) {
+                urlBase = urlBase.split('?')[0];
             }
+
+            // Construimos la URL perfecta inyectando los comandos de control de YouTube:
+            // autoplay=1 (reproduce solo), mute=1 (esquiva el bloqueo del navegador), enablejsapi=1 (comunicación limpia)
+            const urlConAutoplay = `${urlBase}?autoplay=1&mute=1&enablejsapi=1&rel=0`;
 
             // EVENTO DE APERTURA: Se ejecuta CADA VEZ que el modal empieza a abrirse
             modal.addEventListener('show.bs.modal', () => {
-                // Inyectamos la URL configurada con Autoplay. Esto revive el reproductor siempre.
-                iframe.src = urlOriginal; 
+                // Inyectamos la URL con los superpoderes de autoplay
+                iframe.src = urlConAutoplay; 
             });
 
-            // EVENTO DE CIERRE: Se ejecuta CADA VEZ que el modal empieza a ocultarse
+            // EVENTO DE CIERRE: Se ejecuta CADA VEZ que el modal se oculta por completo
             modal.addEventListener('hidden.bs.modal', () => {
-                // Vaciamos de forma agresiva para cortar la conexión y apagar el vídeo de raíz
+                // Vaciamos el reproductor para apagar la conexión con YouTube de inmediato
                 iframe.src = ''; 
             });
         }
     });
 
-    // 2. Controladores de clic en botones físicos ("X") corregidos
-    // Ya NO vaciamos el src aquí para no pisar la memoria del evento show/hidden de Bootstrap
+    // 2. Control de los clics en los botones "X" físicos
     const botonesCierre = document.querySelectorAll('[data-bs-dismiss="modal"], [data-dismiss="modal"], .btn-close');
     
     botonesCierre.forEach(boton => {
-        boton.addEventListener('click', (e) => {
+        boton.addEventListener('click', () => {
             const modalPadre = boton.closest('.modal');
             if (modalPadre) {
-                // Buscamos la instancia oficial del Modal de Bootstrap y forzamos su cierre limpio
-                // Esto dispara automáticamente 'hidden.bs.modal' de forma ordenada sin romper nada
+                // Dejamos que Bootstrap gestione el cierre de forma nativa y ordenada
                 const bsModal = bootstrap.Modal.getInstance(modalPadre) || new bootstrap.Modal(modalPadre);
                 bsModal.hide();
             }
@@ -479,6 +479,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 </script>
+
 
 
 </body>
