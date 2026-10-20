@@ -428,8 +428,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   
- <script>
-// Esperar a que toda la página esté cargada por completo
+<script>
 document.addEventListener("DOMContentLoaded", () => {
     
     // 1. Buscar cualquier modal que contenga un iframe de YouTube
@@ -439,42 +438,48 @@ document.addEventListener("DOMContentLoaded", () => {
         const iframe = modal.querySelector('iframe');
         
         if (iframe) {
-            // ¡ESTA ES LA CLAVE! Guardamos la URL original de YouTube antes de borrarla
-            const urlOriginal = iframe.src;
+            // Guardamos la URL base limpia eliminando espacios o barras finales extrañas
+            let urlOriginal = iframe.src.trim();
 
-            // Escuchamos el evento de cierre estándar de Bootstrap
-            modal.addEventListener('hidden.bs.modal', () => {
-                // Forzamos la detención vaciando el src para parar el audio inmediatamente
-                iframe.src = ''; 
+            // Modificamos la URL original para forzar el AUTOPLAY cumpliendo las reglas de Google
+            // Añadimos autoplay=1 y mute=1 (es obligatorio mutearlo para que el navegador permita el autoplay)
+            if (!urlOriginal.includes('autoplay=1')) {
+                const conector = urlOriginal.includes('?') ? '&' : '?';
+                urlOriginal = `${urlOriginal}${conector}autoplay=1&mute=1&enablejsapi=1`;
+            }
+
+            // EVENTO DE APERTURA: Se ejecuta CADA VEZ que el modal empieza a abrirse
+            modal.addEventListener('show.bs.modal', () => {
+                // Inyectamos la URL configurada con Autoplay. Esto revive el reproductor siempre.
+                iframe.src = urlOriginal; 
             });
 
-            // Escuchamos el evento de apertura de Bootstrap para restaurar el vídeo
-            modal.addEventListener('show.bs.modal', () => {
-                // Volvemos a poner la URL original para que el vídeo vuelva a estar disponible
-                iframe.src = urlOriginal;
+            // EVENTO DE CIERRE: Se ejecuta CADA VEZ que el modal empieza a ocultarse
+            modal.addEventListener('hidden.bs.modal', () => {
+                // Vaciamos de forma agresiva para cortar la conexión y apagar el vídeo de raíz
+                iframe.src = ''; 
             });
         }
     });
 
-    // 2. Si el botón "X" rompe los eventos de Bootstrap,
-    // escuchar directamente el clic en cualquier botón de cierre físico
+    // 2. Controladores de clic en botones físicos ("X") corregidos
+    // Ya NO vaciamos el src aquí para no pisar la memoria del evento show/hidden de Bootstrap
     const botonesCierre = document.querySelectorAll('[data-bs-dismiss="modal"], [data-dismiss="modal"], .btn-close');
     
     botonesCierre.forEach(boton => {
-        boton.addEventListener('click', () => {
-            // Buscar el modal más cercano al botón pulsado (la X)
+        boton.addEventListener('click', (e) => {
             const modalPadre = boton.closest('.modal');
             if (modalPadre) {
-                const iframe = modalPadre.querySelector('iframe');
-                if (iframe) {
-                    // Detener el audio de inmediato al hacer clic físico en la X
-                    iframe.src = ''; 
-                }
+                // Buscamos la instancia oficial del Modal de Bootstrap y forzamos su cierre limpio
+                // Esto dispara automáticamente 'hidden.bs.modal' de forma ordenada sin romper nada
+                const bsModal = bootstrap.Modal.getInstance(modalPadre) || new bootstrap.Modal(modalPadre);
+                bsModal.hide();
             }
         });
     });
 });
 </script>
+
 
 </body>
 </html>
