@@ -428,27 +428,36 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   
-  <script>
-
-    // Esperar a que toda la página esté cargada por completo
+ <script>
+// Esperar a que toda la página esté cargada por completo
 document.addEventListener("DOMContentLoaded", () => {
     
     // 1. Buscar cualquier modal que contenga un iframe de YouTube
     const todosLosModales = document.querySelectorAll('.modal');
 
     todosLosModales.forEach(modal => {
-        // Escuchamos el evento de cierre estándar de Bootstrap
-        modal.addEventListener('hidden.bs.modal', () => {
-            const iframe = modal.querySelector('iframe');
-            if (iframe) {
-                // Forzamos la detención vaciando el src de forma agresiva
+        const iframe = modal.querySelector('iframe');
+        
+        if (iframe) {
+            // ¡ESTA ES LA CLAVE! Guardamos la URL original de YouTube antes de borrarla
+            const urlOriginal = iframe.src;
+
+            // Escuchamos el evento de cierre estándar de Bootstrap
+            modal.addEventListener('hidden.bs.modal', () => {
+                // Forzamos la detención vaciando el src para parar el audio inmediatamente
                 iframe.src = ''; 
-            }
-        });
+            });
+
+            // Escuchamos el evento de apertura de Bootstrap para restaurar el vídeo
+            modal.addEventListener('show.bs.modal', () => {
+                // Volvemos a poner la URL original para que el vídeo vuelva a estar disponible
+                iframe.src = urlOriginal;
+            });
+        }
     });
 
-    // 2.  botón "X" rompe los eventos de Bootstrap,
-    // escuchar directamente el clic en culaquier botón de cierre físico
+    // 2. Si el botón "X" rompe los eventos de Bootstrap,
+    // escuchar directamente el clic en cualquier botón de cierre físico
     const botonesCierre = document.querySelectorAll('[data-bs-dismiss="modal"], [data-dismiss="modal"], .btn-close');
     
     botonesCierre.forEach(boton => {
@@ -465,8 +474,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
-
-  </script>
+</script>
 
 </body>
 </html>
