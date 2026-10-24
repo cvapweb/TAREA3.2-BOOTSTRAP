@@ -18,6 +18,20 @@ html, body {
     background-color: #24262b !important;
 }    
 
+/* Cambia el color y pone el texto en negrita al pasar el ratón (Hover) */
+.nav-link:hover {
+    color: #0d6efd !important; /* Pon el color que mejor contraste con tu fondo gris plomo */
+    /*font-weight: bold !important;*/
+    cursor: pointer;
+}
+
+/* Mantiene la pestaña resaltada cuando está seleccionada (Activa) */
+.nav-link.active {
+    color: #e14141 !important;
+    /*font-weight: bold !important;*/
+    border-bottom: 2px solid #e14141; /* Opcional: añade una línea decorativa debajo */
+}
+
 
 /*CONTENIDO PRINCIPAL*/
 
@@ -87,7 +101,7 @@ html, body {
     .bg-smr { background-image: url('img/smr.jpg'); }
     .bg-asir { background-image: url('img/asir.jpg'); }
     .bg-daw { background-image: url('img/daw2.jpg'); }
-    .bg-dam { background-image: url('img/dam.jpg'); }
+    .bg-dam { background-image: url('img/dam3.jpg'); }
 
     /* Activamos el difuminado premium y el tamaño cover solo en PC */
     .bg-smr, .bg-asir, .bg-daw, .bg-dam {
