@@ -13,11 +13,6 @@ html, body {
     height: auto;
 }
 
- /* Color Gris Plomo personalizado */
-.bg-gris-plomo {
-    background-color: #24262b !important;
-}    
-
 /* Cambia el color y pone el texto en negrita al pasar el ratón (Hover) */
 .nav-link:hover {
     color: #0d6efd !important; /* Pon el color que mejor contraste con tu fondo gris plomo */
@@ -31,6 +26,13 @@ html, body {
     /*font-weight: bold !important;*/
     border-bottom: 2px solid #e14141; /* Opcional: añade una línea decorativa debajo */
 }
+
+ /* Color Gris Plomo personalizado */
+.bg-gris-plomo {
+    background-color: #24262b !important;
+}    
+
+
 
 
 /*CONTENIDO PRINCIPAL*/
